@@ -1,90 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Tilothama Nunna</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .resume-section {
-            max-width: 600px;
-            margin: auto;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 20px;
-        }
+<title>Resume | Tilothama Nunna</title>
+<link rel="stylesheet" href="style.css">
 
-        .form-box {
-            background: var(--card-bg, #fff);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border, #ddd);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
+<style>
+.resume-section{
+    max-width:600px;
+    margin:auto;
+    text-align:center;
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:20px;
+}
 
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
+.form-box{
+    background:var(--card-bg,#fff);
+    padding:40px;
+    border-radius:12px;
+    border:1px solid var(--border,#ddd);
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
 
-        .input-field:focus {
-            outline: none;
-            border-color: var(--accent, #007bff);
-        }
+.input-field{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+    box-sizing:border-box;
+}
 
-        .input-field.invalid {
-            border-color: #e74c3c;
-            background: #fff8f8;
-        }
+.input-field:focus{
+    outline:none;
+    border-color:#007bff;
+}
 
-        .btn.primary {
-            background-color: var(--accent, #007bff);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            width: 100%;
-        }
+.field-error{
+    color:red;
+    font-size:12px;
+    display:none;
+}
 
-        .btn.primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+.btn.primary{
+    background:#007bff;
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    width:100%;
+}
 
-        .field-error {
-            color: #e74c3c;
-            font-size: 12px;
-            text-align: left;
-            display: none;
-        }
-
-        #resume-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+#resume-content{
+    display:none;
+}
+</style>
 </head>
 
 <body>
 
 <nav class="container-wide">
     <div class="logo"><strong>TN</strong></div>
+
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="skills.html">Skills</a>
@@ -97,117 +81,134 @@
 
 <section class="resume-section">
 
-    <!-- FORM -->
-    <div id="resume-form" class="form-box">
-        <h2>Unlock Full Resume</h2>
-        <p>Enter your details to view/download resume</p>
+<div id="resume-form" class="form-box">
 
-        <form id="resume-form-element" novalidate>
+    <h2>Unlock Full Resume</h2>
+    <p>Enter your details to continue</p>
 
-            <input type="text" id="res-name" class="input-field" placeholder="Full Name">
-            <div class="field-error" id="name-error"></div>
+    <form id="resume-form-element">
 
-            <input type="email" id="res-email" class="input-field" placeholder="Email Address">
-            <div class="field-error" id="email-error"></div>
+        <input
+            type="text"
+            id="res-name"
+            class="input-field"
+            placeholder="Full Name"
+        >
+        <div class="field-error" id="name-error"></div>
 
-            <button type="submit" id="submit-btn" class="btn primary">
-                View Resume
-            </button>
-        </form>
-    </div>
+        <input
+            type="email"
+            id="res-email"
+            class="input-field"
+            placeholder="Email Address"
+        >
+        <div class="field-error" id="email-error"></div>
 
-    <!-- SUCCESS -->
-    <div id="resume-content">
-        <h2 style="color: var(--accent, #007bff);">Access Granted</h2>
-        <p>You can now download your resume.</p>
+        <button
+            type="submit"
+            id="submit-btn"
+            class="btn primary">
+            View Resume
+        </button>
 
-        <a href="resume/Tilothama_Nunna_Resume.pdf"
-           class="btn primary"
-           target="_blank"
-           style="display:inline-block; margin-top:20px;">
-            Download Resume
-        </a>
-    </div>
+    </form>
+
+</div>
+
+<div id="resume-content">
+
+    <h2 style="color:#007bff;">Access Granted</h2>
+
+    <p>You can now download your resume.</p>
+
+    <a
+        href="resume/Tilothama_Nunna_Resume.pdf"
+        target="_blank"
+        class="btn primary"
+        style="display:inline-block;margin-top:20px;">
+        Download Resume
+    </a>
+
+</div>
 
 </section>
 
 <script>
 
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbwDq13WaWzSspBbf0bqMd8dWucfNNMtUi9Ais5wxVcvb7U_ygiWkA_LDcJ6XoGUlJcJLA/exec";
+const SHEET_URL =
+"https://script.google.com/macros/s/AKfycbxVvLKNIvAvznsrItMDZgj9q1dggDOlrSkZfsWokcP8bvdXF5TQWb1-uG61ucb8vNbH/exec";
 
-const BLOCKED_DOMAINS = [
-    'mailinator.com','guerrillamail.com','tempmail.com','yopmail.com',
-    '10minutemail.com','trashmail.com','getnada.com'
-];
-
-// Error helpers
-function showError(id, msg) {
-    const el = document.getElementById(id);
-    el.textContent = msg;
-    el.style.display = "block";
+function showResume(){
+document.getElementById("resume-form").style.display="none";
+document.getElementById("resume-content").style.display="block";
 }
 
-function clearErrors() {
-    document.querySelectorAll(".field-error").forEach(e => e.style.display = "none");
+document
+.getElementById("resume-form-element")
+.addEventListener("submit", async (e)=>{
+
+e.preventDefault();
+
+const name =
+document.getElementById("res-name")
+.value
+.trim();
+
+const email =
+document.getElementById("res-email")
+.value
+.trim();
+
+if(!name || !email){
+alert("Fill all fields");
+return;
 }
 
-// Submit handler
-document.getElementById("resume-form-element").addEventListener("submit", function(e) {
-    e.preventDefault();
+const btn =
+document.getElementById("submit-btn");
 
-    const name = document.getElementById("res-name").value.trim();
-    const email = document.getElementById("res-email").value.trim().toLowerCase();
-    const btn = document.getElementById("submit-btn");
+btn.disabled=true;
+btn.innerText="Processing...";
 
-    clearErrors();
+try{
 
-    let valid = true;
+await fetch(
+SHEET_URL,
+{
+method:"POST",
+mode:"no-cors",
 
-    // Name validation
-    if (name.length < 3) {
-        showError("name-error", "Enter valid full name");
-        valid = false;
-    }
+headers:{
+"Content-Type":"text/plain"
+},
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showError("email-error", "Enter valid email");
-        valid = false;
-    } else {
-        const domain = email.split("@")[1];
-        if (BLOCKED_DOMAINS.includes(domain)) {
-            showError("email-error", "Temporary emails not allowed");
-            valid = false;
-        }
-    }
+body:JSON.stringify({
+name,
+email
+})
+}
+);
 
-    if (!valid) return;
+setTimeout(()=>{
+showResume();
+},1000);
 
-    btn.innerText = "Processing...";
-    btn.disabled = true;
+}
+catch(err){
 
-    // 🔥 FIXED FETCH (important)
-    fetch(SHEET_URL, {
-        method: "POST",
-        body: JSON.stringify({ name, email })
-    })
-    .then(() => showResume())
-    .catch(() => showResume());
-});
+alert("Submission failed");
 
-// Show resume
-function showResume() {
-    document.getElementById("resume-form").style.display = "none";
-    document.getElementById("resume-content").style.display = "block";
+btn.disabled=false;
+
+btn.innerText=
+"View Resume";
+
+console.log(err);
+
 }
 
-// Theme toggle
-document.getElementById("theme-btn").addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
 });
 
 </script>
-
 </body>
 </html>

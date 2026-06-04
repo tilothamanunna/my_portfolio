@@ -109,7 +109,7 @@
             </p>
 
             <div style="margin-top:2rem; line-height:2;">
-                <p><strong>Email:</strong> tnunna@memphis.edu</p>
+            
                 <p><strong>Location:</strong> Memphis, TN</p>
             </div>
         </div>
@@ -159,39 +159,121 @@
 </footer>
 
 <script>
+
 const SHEET_URL =
-"https://script.google.com/macros/s/AKfycbwkb7DxazkRYAurWGTvhu4qbGsowBkXio59sZD7L_QnhDMCrVAfrhn2oHenVOMrf3vbIQ/exec";
+"https://script.google.com/macros/s/AKfycbyT_A1NorW24EPXL3eIk2PbR3dsWf91rOrhFUU2FYmNHehSeYaRKHj4HQ9twJDIqQV-/exec";
 
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document
+.getElementById("contact-form")
+.addEventListener(
+"submit",
+async function(e){
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
+e.preventDefault();
 
-    const btn = document.querySelector(".submit-btn");
+const btn =
+document.querySelector(
+".submit-btn"
+);
 
-    btn.innerText = "Sending...";
-    btn.disabled = true;
+const payload = {
 
-    fetch(SHEET_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-            name,
-            email,
-            subject,
-            message
-        })
-    });
+name:
+document
+.getElementById("name")
+.value
+.trim(),
 
-    document.getElementById("success-message").style.display = "block";
-    document.getElementById("contact-form").reset();
+email:
+document
+.getElementById("email")
+.value
+.trim(),
 
-    btn.innerText = "Send Message →";
-    btn.disabled = false;
+subject:
+document
+.getElementById("subject")
+.value
+.trim(),
+
+message:
+document
+.getElementById("message")
+.value
+.trim()
+
+};
+
+if(
+!payload.name ||
+!payload.email ||
+!payload.message
+){
+alert(
+"Please fill all required fields"
+);
+return;
+}
+
+btn.disabled=true;
+
+btn.innerText=
+"Sending...";
+
+try{
+
+await fetch(
+SHEET_URL,
+{
+method:"POST",
+
+mode:"no-cors",
+
+headers:{
+"Content-Type":
+"text/plain"
+},
+
+body:
+JSON.stringify(
+payload
+)
+}
+);
+
+document
+.getElementById(
+"success-message"
+)
+.style.display=
+"block";
+
+document
+.getElementById(
+"contact-form"
+)
+.reset();
+
+}
+catch(err){
+
+alert(
+"Message failed"
+);
+
+console.log(
+err
+);
+
+}
+
+btn.disabled=false;
+
+btn.innerText=
+"Send Message →";
+
 });
+
 </script>
 
 </body>
